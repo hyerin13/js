@@ -9,10 +9,29 @@
     <p id="result"></p>
 
     <script>
+        //document.cookie="username=hyerin; expires=Fri, 19 June 2020 00:00:00 UTC";
         document.cookie="username=hyerin";
         document.cookie="sex=female";
+        document.cookie="age=20";
+
         var x=document.cookie;
         document.getElementById("result").innerHTML=x;
+
+        function getCookie(cname) {
+            var name=cname+"=";
+            var decodedCookie=decodeURIComponent(document.cookie);
+            var ca=decodedCookie.split(";");
+            for(i=0; i<ca.length; i++) {
+                var c=ca[i];
+                while(c.charAt(0)=="") {
+                    c=c.substring(1);
+                }
+                if(c.indexOf(name)==0) {
+                    return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+        }
     </script>
 </body>
 
